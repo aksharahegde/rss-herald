@@ -5,6 +5,7 @@ import { useSearchParams, useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { ArrowLeft, ExternalLink, Share2 } from "lucide-react"
 import { useTheme } from "@/contexts/theme-context"
+import { VoicePlayer } from "@/components/voice-player"
 
 interface FeedItem {
   title: string
@@ -217,6 +218,14 @@ function ArticleContent() {
               </div>
             )}
           </div>
+
+          {/* Voice Player */}
+          {!isReaderMode && (
+            <VoicePlayer 
+              text={article.content || article.description || ""} 
+              articleTitle={article.title}
+            />
+          )}
 
           {/* Article Content */}
           <div className="font-serif theme-text leading-relaxed">
