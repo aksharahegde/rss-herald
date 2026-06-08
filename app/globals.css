@@ -1,0 +1,380 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom newspaper styles */
+.font-serif {
+  font-family: var(--font-playfair), var(--font-crimson), "Times New Roman", "Georgia", serif;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+/* Theme System */
+[data-theme="light"] {
+  --theme-bg: #f9fafb;
+  --theme-card: #ffffff;
+  --theme-text: #111827;
+  --theme-text-secondary: #6b7280;
+  --theme-text-error: #dc2626;
+  --theme-border: #d1d5db;
+  --theme-button-primary: #1f2937;
+  --theme-button-secondary: #f3f4f6;
+  --theme-input: #ffffff;
+  --theme-warning: #fef3c7;
+  --theme-warning-text: #92400e;
+  --theme-warning-icon: #f59e0b;
+  --theme-warning-button: #d97706;
+}
+
+[data-theme="dark"] {
+  --theme-bg: #111827;
+  --theme-card: #1f2937;
+  --theme-text: #f9fafb;
+  --theme-text-secondary: #9ca3af;
+  --theme-text-error: #ef4444;
+  --theme-border: #374151;
+  --theme-button-primary: #f9fafb;
+  --theme-button-secondary: #374151;
+  --theme-input: #374151;
+  --theme-warning: #451a03;
+  --theme-warning-text: #fbbf24;
+  --theme-warning-icon: #f59e0b;
+  --theme-warning-button: #f59e0b;
+}
+
+[data-theme="sepia"] {
+  --theme-bg: #f7f3e9;
+  --theme-card: #faf6ed;
+  --theme-text: #3c2e26;
+  --theme-text-secondary: #8b7355;
+  --theme-text-error: #a0522d;
+  --theme-border: #d4c4a8;
+  --theme-button-primary: #5d4e37;
+  --theme-button-secondary: #f0e6d2;
+  --theme-input: #faf6ed;
+  --theme-warning: #f4e4bc;
+  --theme-warning-text: #8b4513;
+  --theme-warning-icon: #cd853f;
+  --theme-warning-button: #a0522d;
+}
+
+[data-theme="high-contrast"] {
+  --theme-bg: #ffffff;
+  --theme-card: #ffffff;
+  --theme-text: #000000;
+  --theme-text-secondary: #000000;
+  --theme-text-error: #ff0000;
+  --theme-border: #000000;
+  --theme-button-primary: #000000;
+  --theme-button-secondary: #ffffff;
+  --theme-input: #ffffff;
+  --theme-warning: #ffff00;
+  --theme-warning-text: #000000;
+  --theme-warning-icon: #000000;
+  --theme-warning-button: #000000;
+}
+
+[data-theme="reader"] {
+  --theme-bg: #fefefe;
+  --theme-card: #ffffff;
+  --theme-text: #2d3748;
+  --theme-text-secondary: #718096;
+  --theme-text-error: #e53e3e;
+  --theme-border: #e2e8f0;
+  --theme-button-primary: #4a5568;
+  --theme-button-secondary: #f7fafc;
+  --theme-input: #ffffff;
+  --theme-warning: #fef5e7;
+  --theme-warning-text: #744210;
+  --theme-warning-icon: #ed8936;
+  --theme-warning-button: #dd6b20;
+}
+
+[data-theme="e-ink"] {
+  --theme-bg: #f8f8f8;
+  --theme-card: #ffffff;
+  --theme-text: #2d2d2d;
+  --theme-text-secondary: #666666;
+  --theme-text-error: #4a4a4a;
+  --theme-border: #cccccc;
+  --theme-button-primary: #2d2d2d;
+  --theme-button-secondary: #f0f0f0;
+  --theme-input: #ffffff;
+  --theme-warning: #f0f0f0;
+  --theme-warning-text: #4a4a4a;
+  --theme-warning-icon: #666666;
+  --theme-warning-button: #2d2d2d;
+}
+
+/* Theme Classes */
+.theme-bg {
+  background-color: var(--theme-bg);
+}
+
+.theme-card {
+  background-color: var(--theme-card);
+  border: 1px solid var(--theme-border);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.theme-text {
+  color: var(--theme-text);
+}
+
+.theme-text-secondary {
+  color: var(--theme-text-secondary);
+}
+
+.theme-text-error {
+  color: var(--theme-text-error);
+}
+
+.theme-border-bottom {
+  border-bottom: 2px solid var(--theme-border);
+}
+
+.theme-border-top {
+  border-top: 1px solid var(--theme-border);
+}
+
+.theme-button {
+  background-color: var(--theme-button-secondary);
+  border: 1px solid var(--theme-border);
+  color: var(--theme-text);
+}
+
+.theme-button:hover {
+  background-color: var(--theme-border);
+}
+
+.theme-button-primary {
+  background-color: var(--theme-button-primary);
+  color: var(--theme-bg);
+  border: 1px solid var(--theme-button-primary);
+}
+
+.theme-button-primary:hover {
+  opacity: 0.9;
+}
+
+.theme-button-secondary {
+  background-color: var(--theme-button-secondary);
+  border: 1px solid var(--theme-border);
+  color: var(--theme-text);
+}
+
+.theme-button-secondary:hover {
+  background-color: var(--theme-border);
+}
+
+.theme-input {
+  background-color: var(--theme-input);
+  border: 1px solid var(--theme-border);
+  color: var(--theme-text);
+}
+
+.theme-input:focus {
+  border-color: var(--theme-button-primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+}
+
+.theme-warning {
+  background-color: var(--theme-warning);
+  border-left: 4px solid var(--theme-warning-icon);
+}
+
+.theme-warning-text {
+  color: var(--theme-warning-text);
+}
+
+.theme-warning-icon {
+  color: var(--theme-warning-icon);
+}
+
+.theme-button-warning {
+  background-color: var(--theme-warning-button);
+  color: var(--theme-bg);
+}
+
+.theme-button-warning:hover {
+  opacity: 0.9;
+}
+
+/* Reader Mode Specific Styles */
+.reader-mode {
+  padding: 2rem 1rem;
+}
+
+.reader-card {
+  max-width: none;
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.reader-header {
+  border-bottom: 1px solid var(--theme-border);
+  margin-bottom: 2rem;
+}
+
+.reader-content {
+  line-height: inherit;
+}
+
+.reader-content h1,
+.reader-content h2,
+.reader-content h3,
+.reader-content h4,
+.reader-content h5,
+.reader-content h6 {
+  margin-top: 2em;
+  margin-bottom: 1em;
+  line-height: 1.3;
+}
+
+.reader-content p {
+  margin-bottom: 1.5em;
+}
+
+.reader-content ul,
+.reader-content ol {
+  margin-bottom: 1.5em;
+  padding-left: 2em;
+}
+
+.reader-content li {
+  margin-bottom: 0.5em;
+}
+
+.reader-content blockquote {
+  margin: 2em 0;
+  padding-left: 2em;
+  border-left: 4px solid var(--theme-border);
+  font-style: italic;
+}
+
+.reader-content code {
+  background-color: var(--theme-button-secondary);
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.reader-content pre {
+  background-color: var(--theme-button-secondary);
+  padding: 1em;
+  border-radius: 6px;
+  overflow-x: auto;
+  margin: 1.5em 0;
+}
+
+/* High Contrast Mode Enhancements */
+[data-theme="high-contrast"] .theme-card {
+  border: 3px solid #000000;
+}
+
+[data-theme="high-contrast"] .theme-button-secondary {
+  border: 2px solid #000000;
+}
+
+[data-theme="high-contrast"] .theme-input {
+  border: 2px solid #000000;
+}
+
+/* E-Ink Mode Enhancements */
+[data-theme="e-ink"] {
+  filter: grayscale(100%);
+}
+
+[data-theme="e-ink"] .theme-card {
+  box-shadow: none;
+  border: 1px solid #cccccc;
+}
+
+/* Theme Selector Styles */
+.theme-option {
+  transition: all 0.2s ease;
+}
+
+.theme-slider .slider-track {
+  background-color: var(--theme-border);
+}
+
+.theme-slider .slider-thumb {
+  background-color: var(--theme-button-primary);
+}
+
+.theme-select {
+  background-color: var(--theme-input);
+  border: 1px solid var(--theme-border);
+  color: var(--theme-text);
+}
