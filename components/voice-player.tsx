@@ -25,7 +25,12 @@ export function VoicePlayer({ text, articleTitle }: VoicePlayerProps) {
     const updateVoices = () => {
       const availableVoices = window.speechSynthesis.getVoices()
       setVoices(availableVoices)
-      if (availableVoices.length > 0 && selectedVoice >= availableVoices.length) {
+      
+      // Find Geeta voice, otherwise default to first voice
+      const geetaVoice = availableVoices.findIndex(voice => voice.name.includes('Geeta'))
+      if (geetaVoice !== -1) {
+        setSelectedVoice(geetaVoice)
+      } else if (availableVoices.length > 0 && selectedVoice >= availableVoices.length) {
         setSelectedVoice(0)
       }
     }
